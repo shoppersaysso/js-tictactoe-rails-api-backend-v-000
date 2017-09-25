@@ -1,4 +1,5 @@
-require 'active_model_serializers/register_jsonapi_renderer'
-
-ActiveModelSerializers.config.adapter = :json_api
-ActiveModelSerializers.config.key_transform = :unaltered
+ActiveModelSerializers.config.tap do |c|
+  c.adapter = :json_api
+  c.jsonapi_include_toplevel_object = true
+  c.jsonapi_version = "1.0"
+end
